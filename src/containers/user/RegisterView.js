@@ -5,11 +5,11 @@ import {
 } from 'react-native';
 import { isNil } from 'lodash';
 
-import KakaoLogin from '../native/KakaoLogin';
-import KakaoRegisterButton from '../components/register/KakaoRegisterButton';
+import KakaoLogin from '../../native/KakaoLogin';
+import KakaoRegisterButton from '../../components/register/KakaoRegisterButton';
 import {
   kakaoRegister
-} from '../actions/user';
+} from '../../actions/user';
 
 class RegisterView extends Component {
 

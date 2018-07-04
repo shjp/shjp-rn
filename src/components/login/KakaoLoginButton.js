@@ -9,7 +9,7 @@ import {
   MKColor
 } from 'react-native-material-kit';
 
-import { KakaoThemeButton } from './custom/buttons';
+import { KakaoThemeButton } from '../custom/buttons';
 
 const KakaoLoginButton = ({ login }) =>
   <KakaoThemeButton

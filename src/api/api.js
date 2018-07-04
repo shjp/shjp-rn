@@ -46,7 +46,7 @@ const formatQueryParams = (url, queryParams) => {
   const applicableParams = omitBy(queryParams, isNil);
 
   // Stringify the query params
-  let queryString = map(applicableParams, (val, key) => `${key}=${val/*.replace(/\s/g, '')*/}`)
+  let queryString = map(applicableParams, (val, key) => `${key}=${val.replace(/\s/g, '')}`)
     .join('&');
 
   return isEmpty(queryString) ? url : `${url}?${queryString}`;

@@ -5,27 +5,31 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
-import GroupsView from '../containers/group/GroupsView';
-import LoginView from '../containers/user/LoginView';
-import RegisterView from '../containers/user/RegisterView';
+import GroupsView from '../group/GroupsView';
+import LoginView from '../user/LoginView';
+import RegisterView from '../user/RegisterView';
 
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: createMaterialBottomTabNavigator({
+const AppNavigator = createMaterialBottomTabNavigator({
+  Groups: {
+    screen: createStackNavigator({
       GroupsView
+    }, {
+      initialRouteName: 'GroupsView'
     })
   },
-  LoginView,
-  RegisterView
+  User: {
+    screen: createStackNavigator({
+      LoginView,
+      RegisterView
+    }, {
+      initialRouteName: 'LoginView'
+    })
+  }
 }, {
-  initialRouteName: 'Home',
-  navigationOptions: () => ({
-    headerStyle: {
-      backgroundColor: '#888'
-    },
-    headerLeft: (props) => <Text style={{color: '#fff'}}>left</Text>,
-    headerRight: <Text>right</Text>
-  })
+  initialRouteName: 'Groups',
+  activeTintColor: '#f0edf6',
+  inactiveTintColor: '#3e2465',
+  barStyle: { backgroundColor: '#694fad' }
 });
 
 export default AppNavigator;
