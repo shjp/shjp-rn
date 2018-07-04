@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {
   ImageTextCard
-} from './custom/cards';
+} from '../custom/cards';
 
 const GroupCard = ({ name, description, imageUri }) => (
   <ImageTextCard

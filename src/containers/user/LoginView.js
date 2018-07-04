@@ -7,14 +7,22 @@ import {
   StyleSheet
 } from 'react-native';
 import { connect } from 'react-redux';
-import KakaoLogin from '../native/KakaoLogin';
-import KakaoLoginButton from '../components/login/KakaoLoginButton';
 
-import { post } from '../api/api';
+import { baseNavigationOptions } from '../../configs/navigationOptions';
+import KakaoLogin from '../../native/KakaoLogin';
+import KakaoLoginButton from '../../components/login/KakaoLoginButton';
 
-import { kakaoLogin } from '../actions/user';
+import { post } from '../../api/api';
+
+import { kakaoLogin } from '../../actions/user';
 
 class LoginView extends Component {
+
+  static navigationOptions = ({ navigation }) => ({
+    headerTitle: 'Login',
+    ...baseNavigationOptions
+  });
+  
   async _kakaoLogin() {
     if (KakaoLogin == null) {
       console.error('KakaoLogin plugin undefined');

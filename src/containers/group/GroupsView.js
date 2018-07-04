@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  ScrollView
+  Image,
+  ScrollView,
+  Text
 } from 'react-native';
 
-import { getGroups } from '../actions/group';
-import GroupCard from '../components/group/GroupCard';
+import { getGroups } from '../../actions/group';
+import { baseNavigationOptions } from '../../configs/navigationOptions';
+import GroupCard from '../../components/group/GroupCard';
 
 class GroupsView extends Component {
+
+  static navigationOptions = ({ navigation }) => ({
+    headerTitle: 'Groups',
+    ...baseNavigationOptions
+  });
+
   componentDidMount() {
     this.props.getGroups();
   }
