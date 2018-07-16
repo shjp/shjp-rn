@@ -1,2 +1,4 @@
 import { NativeModules } from 'react-native';
-module.exports = NativeModules.KakaoLoginModule;
+const kakaoModule = NativeModules.KakaoLoginModule;
+kakaoModule.initialize();
+module.exports = kakaoModule;

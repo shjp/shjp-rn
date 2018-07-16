@@ -23,6 +23,9 @@ project.xcworkspace
 .gradle
 local.properties
 *.iml
+android/.idea
+android/.idea/libraries
+.idea
 
 # node.js
 node_modules

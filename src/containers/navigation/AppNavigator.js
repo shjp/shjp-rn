@@ -5,14 +5,18 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
-import GroupsView from '../group/GroupsView';
+import {
+  GroupCreateView,
+  GroupsView
+} from '../group';
 import LoginView from '../user/LoginView';
 import RegisterView from '../user/RegisterView';
 
 const AppNavigator = createMaterialBottomTabNavigator({
   Groups: {
     screen: createStackNavigator({
-      GroupsView
+      GroupsView,
+      GroupCreateView
     }, {
       initialRouteName: 'GroupsView'
     })

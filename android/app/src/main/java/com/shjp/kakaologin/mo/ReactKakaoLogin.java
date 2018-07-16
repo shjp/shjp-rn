@@ -47,11 +47,9 @@ public class ReactKakaoLogin {
     public ReactKakaoLogin(ReactApplicationContext context) {
         Log.v(LOG_TAG, "kakao : initialize");
         this.reactApplicationContext = context;
-
-
     }
 
-    private void initialize(){
+    public void initialize(){
         if(!init){
             currentActivity = reactApplicationContext.getCurrentActivity();
             init = true;
@@ -72,8 +70,6 @@ public class ReactKakaoLogin {
         this.sessionCallback = new SessionCallback(promise);
         Session.getCurrentSession().addCallback(sessionCallback);
         Session.getCurrentSession().open(AuthType.KAKAO_TALK, currentActivity);
-
-
     }
 
     /**

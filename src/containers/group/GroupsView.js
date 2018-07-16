@@ -9,11 +9,13 @@ import {
 import { getGroups } from '../../actions/group';
 import { baseNavigationOptions } from '../../configs/navigationOptions';
 import GroupCard from '../../components/group/GroupCard';
+import ResourceCreateButton from '../../components/common/ResourceCreateButton';
 
 class GroupsView extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     headerTitle: 'Groups',
+    headerRight: <ResourceCreateButton navigation={navigation} link='GroupCreateView' />,
     ...baseNavigationOptions
   });
 
@@ -42,6 +44,13 @@ class GroupsView extends Component {
       }
       </ScrollView>
     )
+  }
+}
+
+const style = {
+  header: {
+    display: 'flex',
+    flexDirection: 'row'
   }
 }
 

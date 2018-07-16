@@ -3,11 +3,15 @@ package com.shjp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnative.ivpusic.imagepicker.PickerPackage;
+import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.imagepicker.ImagePickerPackage;
 
 import com.shjp.kakaologin.KakaoLoginPackage;
 
@@ -26,8 +30,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-          new ReactMaterialKitPackage(),
-          new KakaoLoginPackage()
+            new PickerPackage(),
+            new ReactMaterialKitPackage(),
+            new VectorIconsPackage(),
+            new ImagePickerPackage(),
+            new KakaoLoginPackage()
       );
     }
 

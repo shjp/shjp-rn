@@ -26,6 +26,12 @@ public class KakaoLoginModule extends ReactContextBaseJavaModule implements Acti
     }
 
     @ReactMethod
+    public void initialize() {
+        System.out.println("[KakaoLoginModule] initialize");
+        rkl.initialize();
+    }
+
+    @ReactMethod
     public void login(Promise promise){
 //        initKakao();
         rkl.login(promise);
@@ -38,7 +44,9 @@ public class KakaoLoginModule extends ReactContextBaseJavaModule implements Acti
     }
 
     public void initKakao(){
-        if( this.rkl  != null) return;
+        if (this.rkl != null) {
+            return;
+        }
         ReactApplicationContext reactContext = getReactApplicationContext();
         reactContext.addActivityEventListener(this);
 
