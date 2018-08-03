@@ -1,15 +1,13 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
-  TouchableHighlight,
   View
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-const ResourceCreateButton = ({ navigation, link }) =>
+const ResourceControlButton = ({ navigation, link, icon, iconType = 'font-awesome' }) =>
   <View style={style.container}>
-    <Icon style={style.icon} name='plus' type="font-awesome" onPress={() => navigation.navigate(link)} />
+    <Icon style={style.icon} name={icon} type={iconType} onPress={() => navigation.navigate(link, {isEdit: true})} />
   </View>;
 
 const style = StyleSheet.create({
@@ -22,4 +20,4 @@ const style = StyleSheet.create({
   }
 });
 
-export default ResourceCreateButton;
+export default ResourceControlButton;

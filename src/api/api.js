@@ -1,13 +1,13 @@
 import { isEmpty, isNil, map, omitBy } from 'lodash';
 
-const URL = 'http://localhost:8080';
+const URL = 'http://192.168.0.12:8080';
 
 export const post = async (path, payload) => {
   try {
     const resp = await fetch(`${URL}/${path}`, {
       method: 'POST',
       headers: {
-        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Content-type': 'application/json',
         'Accept': 'application/json'
       },
       mode: 'cors',

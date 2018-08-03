@@ -107,6 +107,7 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -138,11 +139,10 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-snackbar')
     compile project(':react-native-image-crop-picker')
     compile project(':react-native-vector-icons')
     compile project(':RNMaterialKit')
-
-    compile project(':react-native-image-picker')
 
     compile fileTree(dir: "libs", include: ["*.jar"])
 
@@ -179,4 +179,15 @@ dependencies {
 task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith('multidex')) {
+                details.useVersion '27.1.0'
+            }
+        }
+    }
 }

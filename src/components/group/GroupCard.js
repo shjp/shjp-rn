@@ -6,11 +6,11 @@ import {
   View
 } from 'react-native';
 import {
-  ImageTextCard
+  ImagePrimaryCard
 } from '../custom/cards';
 
 const GroupCard = ({ name, description, imageUri }) => (
-  <ImageTextCard
+  <ImagePrimaryCard
     title={name}
     content={description}
     imageUri={imageUri} />

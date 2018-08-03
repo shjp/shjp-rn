@@ -3,19 +3,20 @@ import { connect } from 'react-redux';
 import {
   Image,
   ScrollView,
-  Text
+  Text,
+  TouchableHighlight
 } from 'react-native';
 
 import { getGroups } from '../../actions/group';
 import { baseNavigationOptions } from '../../configs/navigationOptions';
 import GroupCard from '../../components/group/GroupCard';
-import ResourceCreateButton from '../../components/common/ResourceCreateButton';
+import ResourceControlButton from '../../components/common/ResourceControlButton';
 
 class GroupsView extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     headerTitle: 'Groups',
-    headerRight: <ResourceCreateButton navigation={navigation} link='GroupCreateView' />,
+    headerRight: <ResourceControlButton navigation={navigation} link='GroupCreate' icon='plus' />,
     ...baseNavigationOptions
   });
 
@@ -27,6 +28,12 @@ class GroupsView extends Component {
     console.log('groups: ', JSON.stringify(props.groups));
   }
 
+  navigateToGroup(id) {
+    this.props.navigation.navigate('GroupView', {
+      id
+    });
+  }
+
   render() {
     if (!this.props.groups) {
       return null;
@@ -36,11 +43,12 @@ class GroupsView extends Component {
       <ScrollView>
       {
         this.props.groups.map((group, i) =>
-          <GroupCard
-            key={i}
-            name={group.name}
-            description={group.description}
-            imageUri={group.imageUri || ''} />)
+          <TouchableHighlight onPress={() => this.navigateToGroup(group.id)} key={i}>
+            <GroupCard
+              name={group.name}
+              description={group.description}
+              imageUri={group.imageUri || ''} />
+          </TouchableHighlight>)
       }
       </ScrollView>
     )
