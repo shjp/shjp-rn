@@ -48,12 +48,12 @@ const buildImageField = (mode, field, state, update) => {
                 </View>
               );
             case Mode.FORM_VIEW:
-              if (state[field.key]) {
+              if (!state[field.key]) {
                 return null;
               }
               return (
                 <View>
-                  <Image style={styles.imageView} src={{uri: `data:image/png;base64,${state[field.key]}`}} />
+                  <Image style={styles.imageView} resizeMode='contain' source={{uri: `data:image/png;base64,${state[field.key]}`}} />
                 </View>
               );
           }

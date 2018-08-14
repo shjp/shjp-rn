@@ -49,6 +49,7 @@ const buildCreateForm = model => {
             title: `Successfully created ${this.model.label} "${this.state.name}"!`,
             duration: Snackbar.LENGTH_LONG
           });
+          this.props.navigation.goBack();
         });
       }
     }
