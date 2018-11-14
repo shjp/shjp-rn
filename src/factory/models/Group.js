@@ -29,7 +29,7 @@ const Group = {
       errorKey: 'descriptionError'
     },
     {
-      key: 'imageUri',
+      key: 'image_url',
       label: 'Group Image',
       type: 'image'
     }/*,

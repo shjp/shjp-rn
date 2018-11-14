@@ -53,7 +53,7 @@ const buildImageField = (mode, field, state, update) => {
               }
               return (
                 <View>
-                  <Image style={styles.imageView} resizeMode='contain' source={{uri: `data:image/png;base64,${state[field.key]}`}} />
+                  <Image style={styles.imageView} resizeMode='contain' source={{uri: state[field.key]}} />
                 </View>
               );
           }

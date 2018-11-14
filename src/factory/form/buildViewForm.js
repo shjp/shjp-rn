@@ -26,10 +26,7 @@ const buildViewForm = model => {
 
         this.model = model;
         this.mode = FORM_VIEW;
-        this.state = {
-          name: '',
-          description: ''
-        };
+        this.state = {};
       }
 
       componentDidMount() {

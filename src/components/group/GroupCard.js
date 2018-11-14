@@ -9,11 +9,11 @@ import {
   ImagePrimaryCard
 } from '../custom/cards';
 
-const GroupCard = ({ name, description, imageUri }) => (
+const GroupCard = ({ name, description, imageUrl }) => (
   <ImagePrimaryCard
     title={name}
     content={description}
-    imageUri={imageUri} />
+    imageUri={imageUrl} />
 );
 
 const styles = StyleSheet.create({

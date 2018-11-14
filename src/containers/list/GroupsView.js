@@ -47,7 +47,7 @@ class GroupsView extends Component {
             <GroupCard
               name={group.name}
               description={group.description}
-              imageUri={group.imageUri || ''} />
+              imageUrl={group.image_url || ''} />
           </TouchableHighlight>)
       }
       </ScrollView>

@@ -13,7 +13,7 @@ export const getGroups = () =>
         id,
         name,
         description,
-        imageUri
+        image_url
       }`
     ).then(res =>
       dispatch({
@@ -34,12 +34,12 @@ export const getGroupDetails = (id) =>
       ) {
         name,
         description,
-        imageUri,
+        image_url,
         members {
           name
         }
       }`
-    ).then(res => 
+    ).then(res =>
       dispatch({
         type: GET_GROUP,
         group: res.data.group
@@ -56,11 +56,11 @@ export const createGroup = ({ name, description, imageData }) =>
       createGroup(
         name: "${name}"
         description: "${description}"
-        imageUri: ${imageData ? `"${imageData}"` : null}
+        image_url: ${imageData ? `"${imageData}"` : null}
       ) {
         name,
         description,
-        imageUri
+        image_url
       }`
     ).then(res => {
       console.log('createGroup:res = ', JSON.stringify(res, null, 2));

@@ -1,6 +1,7 @@
 import { isEmpty, isNil, map, omitBy } from 'lodash';
+import { LOCAL_URL, DEV_URL } from 'react-native-dotenv';
 
-const URL = 'http://192.168.0.12:8080';
+const URL = DEV_URL;
 
 export const post = async (path, payload) => {
   try {

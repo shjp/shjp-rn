@@ -4,17 +4,20 @@ import {
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import { Icon } from 'react-native-elements';
+//import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import {
-  //GroupForm,
-  //GroupView,
-  GroupsView
-} from '../group';
+  GroupsView,
+  NewsView
+} from '../list';
 import LoginView from '../user/LoginView';
 import RegisterView from '../user/RegisterView';
 
 import * as FormFactory from '../../factory/form';
 import {
+  Announcement,
+  Event,
   Group
 } from '../../factory/models';
 
@@ -22,13 +25,30 @@ const AppNavigator = createMaterialBottomTabNavigator({
   Groups: {
     screen: createStackNavigator({
       GroupsView,
-      /*GroupView,
-      GroupForm*/
       GroupView: FormFactory.viewForm(Group),
       GroupCreate: FormFactory.createForm(Group),
       GroupEdit: FormFactory.editForm(Group)
     }, {
       initialRouteName: 'GroupsView'
+    }),
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ tintColor }) => <Icon name='users' type='font-awesome' color={tintColor}/>
+    })
+  },
+  News: {
+    screen: createStackNavigator({
+      NewsView,
+      AnnouncementView: FormFactory.viewForm(Announcement),
+      AnnouncementCreate: FormFactory.createForm(Announcement),
+      AnnouncementEdit: FormFactory.editForm(Announcement),
+      EventView: FormFactory.viewForm(Event),
+      EventCreate: FormFactory.createForm(Event),
+      EventEdit: FormFactory.editForm(Event)
+    }, {
+      initialRouteName: 'NewsView'
+    }),
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ tintColor }) => <Icon name='md-calendar' type='ionicon' color={tintColor}/>
     })
   },
   User: {
@@ -37,13 +57,21 @@ const AppNavigator = createMaterialBottomTabNavigator({
       RegisterView
     }, {
       initialRouteName: 'LoginView'
+    }),
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ tintColor }) => <Icon name='user' type='font-awesome' color={tintColor}/>
     })
   }
 }, {
   initialRouteName: 'Groups',
-  activeTintColor: '#f0edf6',
-  inactiveTintColor: '#3e2465',
-  barStyle: { backgroundColor: '#555' }
+  activeColor: '#f0edf6',
+  inactiveColor: '#3e2465',
+  barStyle: { backgroundColor: '#111211' },
+  tabBarOptions: {
+    showLabel: true,
+    showIcon: true,
+    iconStyle: { color: '#ffffff' }
+  }
 });
 
 export default AppNavigator;

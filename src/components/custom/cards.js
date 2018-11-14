@@ -18,7 +18,7 @@ export const TextCard = ({ title, content, children }) =>
 export const ImagePrimaryCard = ({ title, content, imageUri, children }) =>
   <SHJPBaseCard>
     <View style={imagePrimaryStyle.container}>
-      <Image style={imagePrimaryStyle.image} source={{uri: `data:image/jpg;base64,${imageUri}`}} />
+      <Image style={imagePrimaryStyle.image} source={{uri: imageUri}} />
       <View style={imagePrimaryStyle.titleContainer}>
         <Text style={imagePrimaryStyle.title}>{title}</Text>
       </View>
@@ -31,6 +31,8 @@ export const SHJPBaseCard = ({ children, style }) =>
   <View style={[styles.card, style]}>
     {children}
   </View>;
+
+const BORDER_RADIUS = 3;
 
 const textCardStyle = StyleSheet.create({
   container: {
@@ -45,7 +47,9 @@ const imagePrimaryStyle = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 240
+    height: 240,
+    //borderTopLeftRadius: BORDER_RADIUS,
+    //borderTopRightRadius: BORDER_RADIUS
   },
   titleContainer: {
     position: 'absolute',
@@ -78,6 +82,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginHorizontal: 6,
     marginVertical: 4,
+    borderRadius: BORDER_RADIUS,
+    overflow: 'hidden',
 
     // for Android
     elevation: 3,
